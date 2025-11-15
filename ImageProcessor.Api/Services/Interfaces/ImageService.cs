@@ -17,11 +17,13 @@ public class ImageService: IImageService
             ApplyProcessingValue(image, processingValue);
         }
 
-        var resultingImage = image.ToBase64();
+        var resultingBase64Image = request.ReturnBase64
+            ? image.ToBase64()
+            : string.Empty;
 
         var result = new ImageResponse
         {
-            Base64Image = resultingImage
+            Base64Image = resultingBase64Image
         };
 
         return Task.FromResult(result);
