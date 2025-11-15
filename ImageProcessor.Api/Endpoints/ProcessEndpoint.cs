@@ -1,5 +1,6 @@
 using ImageProcessor.Api.Constants;
 using ImageProcessor.Api.Models;
+using ImageProcessor.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ImageProcessor.Api.Endpoints;
@@ -22,9 +23,10 @@ public static class ProcessEndpoint
     }
 
     private static async Task<IResult> ProcessImageHandler(
-        [FromBody] ImageRequest imageRequest)
+        [FromBody] ImageRequest imageRequest,
+        [FromServices] IImageService imageService)
     {
-        // Implementation goes here
-        return Results.Ok(new ImageResponse());
+        var response = await imageService.ProcessImageRequest(imageRequest);
+        return Results.Ok(response);
     }
 }

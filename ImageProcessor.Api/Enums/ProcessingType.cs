@@ -4,6 +4,6 @@ public enum ProcessingType
 {
     Sharpening,
     Saturation,
-    Constrast,
+    Contrast,
     Brightness
 }

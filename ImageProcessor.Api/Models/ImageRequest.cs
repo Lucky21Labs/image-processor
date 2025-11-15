@@ -11,5 +11,5 @@ public class ImageRequest
 
     public bool ReturnBase64 { get; set; }
 
-    public List<ProcessingValue>? Actions { get; set; } = [];
+    public List<ProcessingValue> Actions { get; set; } = [];
 }

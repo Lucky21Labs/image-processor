@@ -1,5 +1,6 @@
 
 using ImageProcessor.Api.Endpoints;
+using ImageProcessor.Api.Extensions;
 
 namespace ImageProcessor.Api;
 
@@ -9,6 +10,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddAppServices();
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
